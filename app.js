@@ -14,13 +14,19 @@ createApp({
     };
 
     const evenNumbers = computed(() => {
-      return numbers.value.filter((n) => n); // TODO: Modifica el método filter para quedarte únicamente con los números pares del array de numbers
+      return numbers.value.filter((n) => n % 2 === 0); // TODO: Modifica el método filter para quedarte únicamente con los números pares del array de numbers
+    });
+
+    const lengthArrayText = computed(() => {
+      if (numbers.value.length % 2 === 0) return "Par";
+      return "Impar";
     });
 
     return {
       numbers,
       addNumber,
       evenNumbers,
+      lengthArrayText,
     };
   },
 }).mount("#app");
